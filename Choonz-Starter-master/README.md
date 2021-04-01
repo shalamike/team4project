@@ -1,4 +1,4 @@
-# Choonz-Starter - working on dev branch
+# Choonz-Starter - tesing smart commits
 
 Starter code for SDET final project specification - music website "Choonz"
 
