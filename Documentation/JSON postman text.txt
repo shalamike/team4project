@@ -1,0 +1,87 @@
+LAST PROJECT JSON DATA
+
+Album:
+
+{
+	id
+	name (unique)
+	List of tracks
+	Artist
+	Genre
+	cover
+}
+
+
+{
+	"name": "Hello",
+	List of tracks,
+	"Artist",
+	"Genre",
+	"cover": "Mine"
+}
+
+Artist:
+{
+	id
+	name
+	List of albums
+}
+
+
+{
+	"name": "Jordan B",
+	List of albums
+}
+
+Genre:
+{
+	id
+	name
+	description
+	List of albums
+}
+
+
+{
+	"name": "rap",
+	"description": "Sick music",
+	List of "albums": [
+		"name": "Hello"
+]	
+}
+
+PlayList:
+{
+	id
+	name
+	description
+	artwork
+	List of tracks
+}
+
+
+{
+	"name": "vibes",
+	"description": "good vibes",
+	"artwork": "insert image here",
+	List of tracks
+}
+
+Tracks
+{
+	id
+	name
+	Album
+	Playlist
+	int duration
+	lyrics
+}
+
+
+{
+	"name": "light work",
+	Album,
+	Playlist,
+	"int duration": 4,
+	"lyrics": "This project will be light work"
+}
