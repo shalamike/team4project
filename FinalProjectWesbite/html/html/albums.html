@@ -44,12 +44,142 @@
         </div>
     </nav>
 
-   
+    <!-- Get request bit -->
+
+    <div class="card">
+        <div class="card-body">
+            <div class="get">
+                <h3 class="headers">Get Albums</h3>
+                <div class="card" style="margin: 2vw 2vh;">
+                    <div class="card-body">
+                        <p class="getData">
+
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-outline-light" onclick="getRequest()">
+                        Show all tasks
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post request bit -->
+
+    <div class="card">
+        <div class="card-body">
+            <div class="post">
+                <h3 class="headers">Create Albums</h3>
+
+                <!-- Trigger the modal with a button -->
+                <div class="createButton">
+                    <button type="button" id="createButton" class="btn btn-outline-light" data-bs-toggle="modal"
+                        data-bs-target="#myModal">
+                        Create an album
+                    </button>
+                </div>
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-xl">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Create Album</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label>Name of Album</label>
+                                    <input type="text" id="createAlbumName" name="createAlbumName">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Name of Artist</label>
+                                    <input type="text" id="createArtistName" name="createArtistName">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Genre</label>
+                                    <input type="text" id="createGenre" name="createGenre">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Cover (description)</label>
+                                    <input type="text" id="createCover" name="createCover">
+                                </div>
+                                <!-- make submit button -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
+        <!-- Put request bit -->
+        <div class="card">
+            <div class="card-body">
+                <div class="post">
+                    <h3 class="headers">Update Albums</h3>
+    
+                    <!-- Trigger the modal with a button -->
+                    <div class="updateButton">
+                        <button type="button" id="updateButton" class="btn btn-outline-light" data-bs-toggle="modal"
+                            data-bs-target="#myModal">
+                            Update an album
+                        </button>
+                    </div>
+                    <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-xl">
+    
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Update Album</h4>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="mb-3">
+                                        <label>ID of album you want to change</label>
+                                        <input type="number" id="updateAlbumId" name="updateAlbumId">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label>Name of Album</label>
+                                        <input type="text" id="updateAlbumName" name="updateAlbumName">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Name of Artist</label>
+                                        <input type="text" id="updateArtistName" name="updateArtistName">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Genre</label>
+                                        <input type="text" id="updateGenre" name="updateGenre">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Cover (description)</label>
+                                        <input type="text" id="updateCover" name="updateCover">
+                                    </div>
+                                    <!-- make submit button -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Delete request bit -->
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
