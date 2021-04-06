@@ -3,6 +3,7 @@ package com.qa.choonz.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.qa.choonz.mappers.PlaylistMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -15,30 +16,26 @@ import com.qa.choonz.rest.dto.PlaylistDTO;
 public class PlaylistService {
 
     private PlaylistRepository repo;
-    private ModelMapper mapper;
+    private PlaylistMapper playlistMapper;
 
-    public PlaylistService(PlaylistRepository repo, ModelMapper mapper) {
+    public PlaylistService(PlaylistRepository repo, PlaylistMapper playlistMapper) {
         super();
         this.repo = repo;
-        this.mapper = mapper;
-    }
-
-    private PlaylistDTO mapToDTO(Playlist playlist) {
-        return this.mapper.map(playlist, PlaylistDTO.class);
+        this.playlistMapper = playlistMapper;
     }
 
     public PlaylistDTO create(Playlist playlist) {
         Playlist created = this.repo.save(playlist);
-        return this.mapToDTO(created);
+        return playlistMapper.mapToDTO(created);
     }
 
     public List<PlaylistDTO> read() {
-        return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
+        return this.repo.findAll().stream().map(playlistMapper::mapToDTO).collect(Collectors.toList());
     }
 
     public PlaylistDTO read(long id) {
         Playlist found = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
-        return this.mapToDTO(found);
+        return playlistMapper.mapToDTO(found);
     }
 
     public PlaylistDTO update(Playlist playlist, long id) {
@@ -48,7 +45,7 @@ public class PlaylistService {
         toUpdate.setArtwork(toUpdate.getArtwork());
         toUpdate.setTracks(toUpdate.getTracks());
         Playlist updated = this.repo.save(toUpdate);
-        return this.mapToDTO(updated);
+        return playlistMapper.mapToDTO(updated);
     }
 
     public boolean delete(long id) {
