@@ -22,6 +22,7 @@ body{
     width: 25%;
 }
 
+
 /* card layout */
 .card{
     background-color: #262729;
@@ -36,7 +37,22 @@ body{
     text-align: center;
 }
 
+/* buttons centered */
+.createButton{
+    text-align: center;
+    padding: 1vw 1vh;
+}
+.updateButton{
+    text-align: center;
+    padding: 1vw 1vh;
+}
+
 /* modal layout */
 .modal-body{
     margin-left: 1vw;
 }
+
+/* active tab coloured */
+.active, .dot:hover {
+    background-color: #717171;
+  }
