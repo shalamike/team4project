@@ -1,3 +1,46 @@
+body{
+    background-color: #262729;
+}
+
+.d-block{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60vw !important;
+    height: 40vh !important;
+}
+
+
+
+/* navbar */
+.nav-item{
+    margin:1vw;
+}
+.navbar-nav{
+    padding: 2vw;
+}
+.navbar-brand{
+    margin-left: 3vw;
+    font-size: 4rem;
+    text-decoration: underline;
+}
+.nav-link{
+    font-size:x-large;
+}
+.image{
+    height: 10%;
+    width: 25%;
+}
+
+/* text */
+.homeText{
+    padding: 2vw 2vh;
+    color: white;
+    font-size: large;
+}
+
+
+/* image carousel */
 * {box-sizing:border-box}
 
 /* Slideshow container */
@@ -58,7 +101,7 @@
   padding: 8px 12px;
   position: absolute;
   top: 0;
-  
+
 
 }
 
@@ -94,4 +137,4 @@
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
-} 
+}
