@@ -4,14 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.rest.dto.TrackDTO;
@@ -44,14 +37,14 @@ public class TrackController {
         return new ResponseEntity<TrackDTO>(this.service.read(id), HttpStatus.OK);
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<TrackDTO> update(@RequestBody Track track, @PathVariable long id) {
-        return new ResponseEntity<TrackDTO>(this.service.update(track, id), HttpStatus.ACCEPTED);
+        return new ResponseEntity<TrackDTO>(this.service.update(track, id), HttpStatus.OK);
     }
 
     @DeleteMapping("delete/{id}")
     public ResponseEntity<TrackDTO> delete(@PathVariable long id) {
-        return this.service.delete(id) ? new ResponseEntity<TrackDTO>(HttpStatus.NO_CONTENT)
+        return this.service.delete(id) ? new ResponseEntity<TrackDTO>(HttpStatus.OK)
                 : new ResponseEntity<TrackDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
