@@ -85,3 +85,18 @@ Tracks
 	"int duration": 4,
 	"lyrics": "This project will be light work"
 }
+
+<div class="modal-body">
+                            <div class="mb-3">
+                                <label>Name of Track</label>
+                                <input type="text" id="createTracksName" name="createTracksName">
+                            </div>
+                            <div class="mb-3">
+                                <label>Duration of Track</label>
+                                <input type="time" id="createTracksDuration" name="createTracksduration">
+                            </div>
+                            <div class="mb-3">
+                                <label>Lyrics</label>
+                                <input type="text" id="createTracksLyrics" name="createTracksLyrics">
+                            </div>
+
