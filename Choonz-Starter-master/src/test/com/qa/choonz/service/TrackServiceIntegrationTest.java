@@ -1,6 +1,7 @@
 package com.qa.choonz.service;
 
 import com.qa.choonz.mappers.TrackMapper;
+import com.qa.choonz.persistence.domain.Album;
 import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.persistence.repository.TrackRepository;
 import com.qa.choonz.rest.dto.TrackDTO;
@@ -31,6 +32,9 @@ public class TrackServiceIntegrationTest {
 
     private Track validTrack;
     private TrackDTO validTrackDTO;
+
+    private Album validAlbum;
+    private List<Album> albums;
 
     @BeforeEach
     public void init() {
@@ -72,7 +76,7 @@ public class TrackServiceIntegrationTest {
 
     @Test
     public void updateTest() {
-        Track updatedTrack = new Track("UpdatedChoon");
+        Track updatedTrack = new Track(2, "UpdatedChoon", validAlbum, validTrack.getPlaylist(), 100, "Lyrics!");
         TrackDTO updatedTrackInDb = trackService.update(updatedTrack, validTrack.getId());
         assertThat(trackMapper.mapToDTO(updatedTrack)).isEqualTo(updatedTrackInDb);
     }

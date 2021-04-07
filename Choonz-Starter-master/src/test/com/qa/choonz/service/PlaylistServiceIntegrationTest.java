@@ -75,7 +75,7 @@ public class PlaylistServiceIntegrationTest {
 
     @Test
     public void updateTest() {
-        Playlist updatedPlaylist = new Playlist("Name 2", "Description 2", "Artwork 2" , tracks);
+        Playlist updatedPlaylist = new Playlist(2, "Name 2", "Description 2", "Artwork 2" , tracks);
         PlaylistDTO updatedPlaylistInDb = playlistService.update(updatedPlaylist, validPlaylist.getId());
         assertThat(playlistMapper.mapToDTO(updatedPlaylist)).isEqualTo(updatedPlaylistInDb);
     }

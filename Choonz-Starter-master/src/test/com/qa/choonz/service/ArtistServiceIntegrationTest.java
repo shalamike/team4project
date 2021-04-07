@@ -76,7 +76,7 @@ public class ArtistServiceIntegrationTest {
 
     @Test
     public void updateTest() {
-        Artist updatedArtist = new Artist("UpdatedArtist", albums);
+        Artist updatedArtist = new Artist(2, "UpdatedArtist", albums);
         ArtistDTO updatedArtistInDb = artistService.update(updatedArtist, validArtist.getId());
         assertThat(artistMapper.mapToDTO(updatedArtist)).isEqualTo(updatedArtistInDb);
     }
