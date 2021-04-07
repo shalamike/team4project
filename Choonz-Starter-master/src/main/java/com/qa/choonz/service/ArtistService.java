@@ -3,7 +3,7 @@ package com.qa.choonz.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.modelmapper.ModelMapper;
+import com.qa.choonz.mappers.ArtistMapper;
 import org.springframework.stereotype.Service;
 
 import com.qa.choonz.exception.ArtistNotFoundException;
@@ -15,30 +15,26 @@ import com.qa.choonz.rest.dto.ArtistDTO;
 public class ArtistService {
 
     private ArtistRepository repo;
-    private ModelMapper mapper;
+    private ArtistMapper artistMapper;
 
-    public ArtistService(ArtistRepository repo, ModelMapper mapper) {
+    public ArtistService(ArtistRepository repo, ArtistMapper artistMapper) {
         super();
         this.repo = repo;
-        this.mapper = mapper;
-    }
-
-    private ArtistDTO mapToDTO(Artist artist) {
-        return this.mapper.map(artist, ArtistDTO.class);
+        this.artistMapper = artistMapper;
     }
 
     public ArtistDTO create(Artist artist) {
         Artist created = this.repo.save(artist);
-        return this.mapToDTO(created);
+        return artistMapper.mapToDTO(created);
     }
 
     public List<ArtistDTO> read() {
-        return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
+        return this.repo.findAll().stream().map(artistMapper::mapToDTO).collect(Collectors.toList());
     }
 
     public ArtistDTO read(long id) {
         Artist found = this.repo.findById(id).orElseThrow(ArtistNotFoundException::new);
-        return this.mapToDTO(found);
+        return artistMapper.mapToDTO(found);
     }
 
     public ArtistDTO update(Artist artist, long id) {
@@ -46,7 +42,7 @@ public class ArtistService {
         toUpdate.setName(artist.getName());
         toUpdate.setAlbums(artist.getAlbums());
         Artist updated = this.repo.save(toUpdate);
-        return this.mapToDTO(updated);
+        return artistMapper.mapToDTO(updated);
     }
 
     public boolean delete(long id) {
