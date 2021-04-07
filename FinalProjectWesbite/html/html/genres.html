@@ -68,13 +68,13 @@
     <div class="card">
         <div class="card-body">
             <div class="post">
-                <h3 class="headers">Create Genres</h3>
+                <h3 class="headers">Create Genre</h3>
 
                 <!-- Trigger the modal with a button -->
                 <div class="createButton">
                     <button type="button" id="createButton" class="btn btn-outline-light" data-bs-toggle="modal"
                         data-bs-target="#myModal">
-                        Create an Genres
+                        Create a Genre
                     </button>
                 </div>
                 <!-- Modal -->
@@ -92,7 +92,6 @@
                                     <label>Name of Genre</label>
                                     <input type="text" id="createGenresName" name="createGenresName">
                                 </div>
-                                <div class="modal-body">
                                     <div class="mb-3">
                                         <label>Description of Genre</label>
                                         <input type="text" id="createGenresDescription" name="createGenresDescription">
@@ -107,7 +106,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
           <!-- Put request bit -->
           <div class="card">
             <div class="card-body">
@@ -118,7 +117,7 @@
                     <div class="updateButton">
                         <button type="button" id="updateButton" class="btn btn-outline-light" data-bs-toggle="modal"
                             data-bs-target="#myModal2">
-                            Update an Genre
+                            Update a Genre
                         </button>
                     </div>
                     <!-- Modal -->
@@ -155,20 +154,21 @@
                     </div>
                 </div>
             </div>
+        </div>
 
         <!-- Delete request bit -->
 
         <div class="card">
             <div class="card-body">
                 <div class="delete">
-                    <h3 class="headers">Delete an Genre</h3>
+                    <h3 class="headers">Delete a Genre</h3>
     
                     <div class="mb-3" id="deleteFunction">
                         <label id="delData" class="form-label" for="delData">Enter the Genre ID you want to Delete</label>
                         <input type="number" class="form-control" name="delIdCheck" id="delIdCheck">
                     </div>
                     <button type="button" class="btn btn-outline-light">
-                        Delete a Artist
+                        Delete a Genre
                     </button>
                 </div>
             </div>
@@ -176,7 +176,10 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous">
+        </script>
+
+
 
 
 
