@@ -77,7 +77,7 @@ public class GenreServiceIntegrationTest {
 
     @Test
     public void updateTest() {
-        Genre updatedGenre = new Genre("NewGenre", "Not so cool :(");
+        Genre updatedGenre = new Genre(2, "NewGenre", "Description2", albums);
         GenreDTO updatedGenreInDb = genreService.update(updatedGenre, validGenre.getId());
         assertThat(genreMapper.mapToDTO(updatedGenre)).isEqualTo(updatedGenreInDb);
     }

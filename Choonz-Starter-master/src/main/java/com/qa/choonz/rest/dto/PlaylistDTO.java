@@ -3,21 +3,19 @@ package com.qa.choonz.rest.dto;
 import java.util.List;
 import java.util.Objects;
 
-import com.qa.choonz.persistence.domain.Track;
-
 public class PlaylistDTO {
 
     private long id;
     private String name;
     private String description;
     private String artwork;
-    private List<Track> tracks;
+    private List<TrackDTO> tracks;
 
     public PlaylistDTO() {
         super();
     }
 
-    public PlaylistDTO(long id, String name, String description, String artwork, List<Track> tracks) {
+    public PlaylistDTO(long id, String name, String description, String artwork, List<TrackDTO> tracks) {
         super();
         this.id = id;
         this.name = name;
@@ -58,11 +56,11 @@ public class PlaylistDTO {
         this.artwork = artwork;
     }
 
-    public List<Track> getTracks() {
+    public List<TrackDTO> getTracks() {
         return tracks;
     }
 
-    public void setTracks(List<Track> tracks) {
+    public void setTracks(List<TrackDTO> tracks) {
         this.tracks = tracks;
     }
 
