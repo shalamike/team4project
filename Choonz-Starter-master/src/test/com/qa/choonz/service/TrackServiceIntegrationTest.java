@@ -1,12 +1,8 @@
 package com.qa.choonz.service;
 
-import com.qa.choonz.mappers.AlbumMapper;
 import com.qa.choonz.mappers.TrackMapper;
-import com.qa.choonz.persistence.domain.Album;
 import com.qa.choonz.persistence.domain.Track;
-import com.qa.choonz.persistence.repository.AlbumRepository;
 import com.qa.choonz.persistence.repository.TrackRepository;
-import com.qa.choonz.rest.dto.AlbumDTO;
 import com.qa.choonz.rest.dto.TrackDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

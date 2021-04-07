@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.qa.choonz.mappers.TrackMapper;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.qa.choonz.exception.TrackNotFoundException;
@@ -42,9 +41,9 @@ public class TrackService {
         Track toUpdate = this.repo.findById(id).orElseThrow(TrackNotFoundException::new);
         toUpdate.setName(track.getName());
         toUpdate.setAlbum(track.getAlbum());
-        toUpdate.setDuration(track.getDuration());
-        toUpdate.setLyrics(track.getLyrics());
         toUpdate.setPlaylist(track.getPlaylist());
+        toUpdate.setLyrics(track.getLyrics());
+        toUpdate.setDuration(track.getDuration());
         Track updated = this.repo.save(toUpdate);
         return trackMapper.mapToDTO(updated);
     }

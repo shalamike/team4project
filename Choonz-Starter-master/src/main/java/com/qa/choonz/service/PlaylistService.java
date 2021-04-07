@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.qa.choonz.mappers.PlaylistMapper;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.qa.choonz.exception.PlaylistNotFoundException;
@@ -40,10 +39,10 @@ public class PlaylistService {
 
     public PlaylistDTO update(Playlist playlist, long id) {
         Playlist toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
-        toUpdate.setName(toUpdate.getName());
-        toUpdate.setDescription(toUpdate.getDescription());
-        toUpdate.setArtwork(toUpdate.getArtwork());
-        toUpdate.setTracks(toUpdate.getTracks());
+        toUpdate.setName(playlist.getName());
+        toUpdate.setDescription(playlist.getDescription());
+        toUpdate.setArtwork(playlist.getArtwork());
+        toUpdate.setTracks(playlist.getTracks());
         Playlist updated = this.repo.save(toUpdate);
         return playlistMapper.mapToDTO(updated);
     }

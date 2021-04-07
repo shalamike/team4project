@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.qa.choonz.mappers.GenreMapper;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.qa.choonz.exception.GenreNotFoundException;
@@ -40,6 +39,9 @@ public class GenreService {
 
     public GenreDTO update(Genre genre, long id) {
         Genre toUpdate = this.repo.findById(id).orElseThrow(GenreNotFoundException::new);
+        toUpdate.setName(genre.getName());
+        toUpdate.setDescription(genre.getDescription());
+        toUpdate.setAlbums(genre.getAlbums());
         Genre updated = this.repo.save(toUpdate);
         return genreMapper.mapToDTO(updated);
     }

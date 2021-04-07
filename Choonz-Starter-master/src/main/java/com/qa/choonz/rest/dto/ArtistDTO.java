@@ -13,7 +13,6 @@ public class ArtistDTO {
 
     public ArtistDTO() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     public ArtistDTO(long id, String name, List<Album> albums) {

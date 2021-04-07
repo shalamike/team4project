@@ -40,7 +40,7 @@ public class PlaylistServiceIntegrationTest {
         tracks = new ArrayList<>();
         validTrack = new Track();
 
-        validPlaylist = new Playlist("Slappers", "some excellent vibes", "scenic views", tracks);
+        validPlaylist = new Playlist("Name", "Description", "Artwork", tracks);
 
         playlists = new ArrayList<>();
         playlistDTOs = new ArrayList<>();
@@ -75,7 +75,7 @@ public class PlaylistServiceIntegrationTest {
 
     @Test
     public void updateTest() {
-        Playlist updatedPlaylist = new Playlist("bangers", "a mix of heavy vibes", "oof");
+        Playlist updatedPlaylist = new Playlist("Name 2", "Description 2", "Artwork 2" , tracks);
         PlaylistDTO updatedPlaylistInDb = playlistService.update(updatedPlaylist, validPlaylist.getId());
         assertThat(playlistMapper.mapToDTO(updatedPlaylist)).isEqualTo(updatedPlaylistInDb);
     }
