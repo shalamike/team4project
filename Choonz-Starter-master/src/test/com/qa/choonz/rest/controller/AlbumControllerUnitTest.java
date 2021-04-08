@@ -36,11 +36,11 @@ public class AlbumControllerUnitTest {
 
     @BeforeEach
     public void init() {
-        validAlbum = new Album();
-        validAlbumDTO = new AlbumDTO();
+        validAlbum = new Album("Kiss Land");
+        validAlbumDTO = new AlbumDTO(1, "Kiss Land");
 
-        albums = new ArrayList<Album>();
-        albumDTOs = new ArrayList<AlbumDTO>();
+        albums = new ArrayList<>();
+        albumDTOs = new ArrayList<>();
 
         albums.add(validAlbum);
         albumDTOs.add(validAlbumDTO);
@@ -53,6 +53,7 @@ public class AlbumControllerUnitTest {
         ResponseEntity<AlbumDTO> response = new ResponseEntity<>(validAlbumDTO, HttpStatus.CREATED);
 
         assertThat(response).isEqualTo(albumController.create(validAlbum));
+
         verify(albumService, times(1)).create(Mockito.any(Album.class));
     }
 
@@ -67,35 +68,40 @@ public class AlbumControllerUnitTest {
     }
 
     @Test
-    public void readAlbumTestByID() {
-        when(albumService.read(Mockito.anyInt())).thenReturn(validAlbumDTO);
+    public void readAlbumByIdTest() {
+        when(albumService.read(validAlbum.getId())).thenReturn(validAlbumDTO);
 
         ResponseEntity<AlbumDTO> response = new ResponseEntity<>(validAlbumDTO, HttpStatus.OK);
 
-        assertThat(response).isEqualTo(albumController.read(validAlbum.getId()));
-        verify(albumService, times(1)).read(Mockito.anyInt());
+        ResponseEntity expected = albumController.read(validAlbum.getId());
+
+        assertThat(response).isEqualTo(expected);
+        verify(albumService, times(1)).read(validAlbum.getId());
     }
 
     @Test
     public void updateAlbumTest() {
-        when(albumService.update(Mockito.any(Album.class), Mockito.anyInt())).thenReturn(validAlbumDTO);
+        Album newAlbum = new Album("what");
+        AlbumDTO updatedAlbum = new AlbumDTO(newAlbum.getId(), "Madness");
 
-        ResponseEntity<AlbumDTO> response = new ResponseEntity<>(validAlbumDTO, HttpStatus.OK);
+        when(albumService.update(newAlbum, newAlbum.getId())).thenReturn(updatedAlbum);
 
-        assertThat(response).isEqualTo(albumController.update(validAlbum, validAlbum.getId()));
+        ResponseEntity<AlbumDTO> response = new ResponseEntity<>(updatedAlbum, HttpStatus.OK);
 
-        verify(albumService, times(1)).update(Mockito.any(Album.class), Mockito.anyInt());
+        assertThat(response).isEqualTo(albumController.update(newAlbum, newAlbum.getId()));
+
+        verify(albumService, times(1)).update(newAlbum, newAlbum.getId());
     }
 
     @Test
     public void deleteAlbumTest() {
-        when(albumService.delete(Mockito.anyInt())).thenReturn(true);
+        when(albumService.delete(validAlbum.getId())).thenReturn(true);
 
         ResponseEntity<Boolean> response = new ResponseEntity<>(true, HttpStatus.OK);
 
         assertThat(response).isEqualTo(albumController.delete(validAlbum.getId()));
 
-        verify(albumService, times(1)).delete(Mockito.anyInt());
+        verify(albumService, times(1)).delete(validAlbum.getId());
     }
 
 }

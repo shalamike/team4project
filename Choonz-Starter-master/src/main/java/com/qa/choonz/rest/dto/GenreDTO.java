@@ -14,6 +14,13 @@ public class GenreDTO {
         super();
     }
 
+    public GenreDTO(long id, String name, String description) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
     public GenreDTO(long id, String name, String description, List<AlbumDTO> albums) {
         super();
         this.id = id;
