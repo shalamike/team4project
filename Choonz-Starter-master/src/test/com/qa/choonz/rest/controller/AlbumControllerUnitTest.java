@@ -20,7 +20,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
-
 public class AlbumControllerUnitTest {
 
     @Autowired
@@ -37,13 +36,8 @@ public class AlbumControllerUnitTest {
 
     @BeforeEach
     public void init() {
-<<<<<<< HEAD:Choonz-Starter-master/src/test/com/qa/choonz/rest/controller/AlbumControllerUnitTest.java
         validAlbum = new Album("Kiss Land");
         validAlbumDTO = new AlbumDTO(1, "Kiss Land");
-=======
-        validAlbum = new Album("a name");
-        validAlbumDTO = new AlbumDTO(1, "a name");
->>>>>>> dev:Choonz-Starter-master/src/test/java/com/qa/choonz/rest/controller/AlbumControllerUnitTest.java
 
         albums = new ArrayList<>();
         albumDTOs = new ArrayList<>();
@@ -90,13 +84,9 @@ public class AlbumControllerUnitTest {
         Album newAlbum = new Album("what");
         AlbumDTO updatedAlbum = new AlbumDTO(newAlbum.getId(), "Madness");
 
-<<<<<<< HEAD:Choonz-Starter-master/src/test/com/qa/choonz/rest/controller/AlbumControllerUnitTest.java
         when(albumService.update(newAlbum, newAlbum.getId())).thenReturn(updatedAlbum);
 
         ResponseEntity<AlbumDTO> response = new ResponseEntity<>(updatedAlbum, HttpStatus.OK);
-=======
-        ResponseEntity<AlbumDTO> response = new ResponseEntity<>(validAlbumDTO, HttpStatus.ACCEPTED);
->>>>>>> dev:Choonz-Starter-master/src/test/java/com/qa/choonz/rest/controller/AlbumControllerUnitTest.java
 
         assertThat(response).isEqualTo(albumController.update(newAlbum, newAlbum.getId()));
 
