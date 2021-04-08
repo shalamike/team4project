@@ -8,7 +8,9 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.qa.choonz.persistence.domain.Album;
 import com.qa.choonz.rest.controller.TrackController;
+import com.qa.choonz.rest.dto.AlbumDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -43,8 +45,8 @@ public class TrackControllerUnitTest {
 		validTrack = new Track();
 		validTrackDTO = new TrackDTO();
 		
-		tracks = new ArrayList<Track>();
-		trackDTOs = new ArrayList<TrackDTO>();
+		tracks = new ArrayList<>();
+		trackDTOs = new ArrayList<>();
 		
 		tracks.add(validTrack);
 		trackDTOs.add(validTrackDTO);	
@@ -52,30 +54,60 @@ public class TrackControllerUnitTest {
 	
 	@Test
 	public void createTrackTest() {
-	when(trackService.create(Mockito.any(Track.class))).thenReturn(validTrackDTO);
-	
-	ResponseEntity<TrackDTO> response = new ResponseEntity<>(validTrackDTO, HttpStatus.CREATED);
-	
-	assertThat(response).isEqualTo(trackController.create(validTrack));
-	verify(trackService, times(1)).read();
+		when(trackService.create(Mockito.any(Track.class))).thenReturn(validTrackDTO);
+
+		ResponseEntity<TrackDTO> response = new ResponseEntity<>(validTrackDTO, HttpStatus.CREATED);
+
+		assertThat(response).isEqualTo(trackController.create(validTrack));
+
+		verify(trackService, times(1)).create(Mockito.any(Track.class));
 	}
 	
 	@Test
 	public void readTrackTest() {
 		when(trackService.read()).thenReturn(trackDTOs);
+
 		ResponseEntity<List<TrackDTO>> response = new ResponseEntity<>(trackDTOs, HttpStatus.OK);
 		 
 		assertThat(response).isEqualTo(trackController.read());
+
 		verify(trackService, times(1)).read();
 	}
 	
 	 @Test
-	 public void readArtistTestByID() {
-		 when(trackService.read(Mockito.anyInt())).thenReturn(validTrackDTO);
+	 public void readTrackByIdTest() {
+		 when(trackService.read(validTrack.getId())).thenReturn(validTrackDTO);
 		 
 		 ResponseEntity<TrackDTO> response = new ResponseEntity<>(validTrackDTO, HttpStatus.OK);
 		 
 		 assertThat(response).isEqualTo(trackController.read(validTrack.getId()));
-		 verify(trackService, times(1)).read(Mockito.anyInt());
+
+		 verify(trackService, times(1)).read(validTrack.getId());
 	 }
+
+	@Test
+	public void updateTrackTest() {
+		Track newTrack = new Track("what");
+		TrackDTO updatedTrack = new TrackDTO(newTrack.getId(), "Madness");
+
+		when(trackService.update(newTrack, newTrack.getId())).thenReturn(updatedTrack);
+
+		ResponseEntity<TrackDTO> response = new ResponseEntity<>(updatedTrack, HttpStatus.OK);
+
+		assertThat(response).isEqualTo(trackController.update(newTrack, newTrack.getId()));
+
+		verify(trackService, times(1)).update(newTrack, newTrack.getId());
+	}
+
+	@Test
+	public void deleteTrackTest() {
+		when(trackService.delete(validTrack.getId())).thenReturn(true);
+
+		ResponseEntity<Boolean> response = new ResponseEntity<>(true, HttpStatus.OK);
+
+		assertThat(response).isEqualTo(trackController.delete(validTrack.getId()));
+
+		verify(trackService, times(1)).delete(validTrack.getId());
+	}
+
 }

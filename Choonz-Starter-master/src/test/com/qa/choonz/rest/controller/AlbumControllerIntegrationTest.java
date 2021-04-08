@@ -40,13 +40,13 @@ public class AlbumControllerIntegrationTest {
 
     private List<TrackDTO> validTracks;
 
-    private AlbumDTO validAlbumDTO = new AlbumDTO(1, "AlbumName", validTracks, validArtist, validGenre, "AlbumCover");
+    private AlbumDTO validAlbumDTO = new AlbumDTO(1, "issa");
     private List<AlbumDTO> validAlbumDTOs = List.of(validAlbumDTO);
 
     @Test
     public void createTest() throws Exception {
-        Album albumToSave = new Album("AlbumNameToSave");
-        AlbumDTO expectedToDoList = new AlbumDTO(1, "AlbumNameToSave");
+        Album albumToSave = new Album("issa");
+        AlbumDTO expectedToDoList = new AlbumDTO(1, "issa");
 
         MockHttpServletRequestBuilder mockRequest =
                 MockMvcRequestBuilders.request(HttpMethod.POST, "/albums/create");
@@ -98,7 +98,7 @@ public class AlbumControllerIntegrationTest {
 
     @Test
     public void updateTest() throws Exception {
-        Album updatedAlbum = new Album("UpdatedName");
+        Album updatedAlbum = new Album("UpdatedName2");
         AlbumDTO expectedAlbum = new AlbumDTO(1, "UpdatedName");
 
         MockHttpServletRequestBuilder mockRequest =

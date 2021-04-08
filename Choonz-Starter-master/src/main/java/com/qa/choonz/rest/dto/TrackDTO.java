@@ -15,6 +15,11 @@ public class TrackDTO {
         super();
     }
 
+    public TrackDTO(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public TrackDTO(long id, String name, AlbumDTO album, PlaylistDTO playlist, int duration, String lyrics) {
         this.id = id;
         this.name = name;

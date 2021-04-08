@@ -13,6 +13,12 @@ public class ArtistDTO {
         super();
     }
 
+    public ArtistDTO(long id, String name) {
+        super();
+        this.id = id;
+        this.name = name;
+    }
+
     public ArtistDTO(long id, String name, List<AlbumDTO> albums) {
         super();
         this.id = id;

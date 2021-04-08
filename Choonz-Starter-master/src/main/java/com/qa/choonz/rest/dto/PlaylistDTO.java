@@ -15,6 +15,14 @@ public class PlaylistDTO {
         super();
     }
 
+    public PlaylistDTO(long id, String name, String description, String artwork) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.artwork = artwork;
+    }
+
     public PlaylistDTO(long id, String name, String description, String artwork, List<TrackDTO> tracks) {
         super();
         this.id = id;

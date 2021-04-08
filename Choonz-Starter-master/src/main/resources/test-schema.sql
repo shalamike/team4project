@@ -5,13 +5,13 @@ DROP TABLE IF EXISTS playlists CASCADE;
 DROP TABLE IF EXISTS tracks CASCADE;
 
 CREATE TABLE artists(
-    id int NOT NULL AUTO_INCREMENT,
+    id long NOT NULL AUTO_INCREMENT,
     name varchar(100) NOT NULL,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE playlists(
-    id int NOT NULL AUTO_INCREMENT,
+    id long NOT NULL AUTO_INCREMENT,
     name varchar(100) NOT NULL,
     description varchar(255),
     artwork varchar(255),
@@ -19,17 +19,17 @@ CREATE TABLE playlists(
 );
 
 CREATE TABLE genres(
-    id int NOT NULL AUTO_INCREMENT,
+    id long NOT NULL AUTO_INCREMENT,
     name varchar(100) NOT NULL,
     description varchar(255),
     PRIMARY KEY (id)
 );
 
 CREATE TABLE albums(
-    id int NOT NULL AUTO_INCREMENT,
+    id long NOT NULL AUTO_INCREMENT,
     name varchar(100) NOT NULL,
-    artist_id int,
-    genre_id int,
+    artist_id long,
+    genre_id long,
     cover varchar(100),
     PRIMARY KEY (id),
     FOREIGN KEY (artist_id) REFERENCES artists(id),
@@ -37,10 +37,10 @@ CREATE TABLE albums(
 );
 
 CREATE TABLE tracks(
-    id int NOT NULL AUTO_INCREMENT,
+    id long NOT NULL AUTO_INCREMENT,
     name varchar(100) NOT NULL,
-    album_id int,
-    playlist_id int,
+    album_id long,
+    playlist_id long,
     duration int,
     lyrics varchar(255),
     PRIMARY KEY (id),

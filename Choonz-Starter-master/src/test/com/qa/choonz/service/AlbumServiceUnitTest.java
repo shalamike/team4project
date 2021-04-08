@@ -1,15 +1,10 @@
 package com.qa.choonz.service;
 
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
+import com.qa.choonz.mappers.AlbumMapper;
+import com.qa.choonz.persistence.domain.Album;
+import com.qa.choonz.persistence.repository.AlbumRepository;
+import com.qa.choonz.rest.dto.AlbumDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -17,10 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import com.qa.choonz.mappers.AlbumMapper;
-import com.qa.choonz.persistence.domain.Album;
-import com.qa.choonz.persistence.repository.AlbumRepository;
-import com.qa.choonz.rest.dto.AlbumDTO;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
 
 
 @SpringBootTest
