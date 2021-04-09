@@ -13,26 +13,29 @@ body{
 
 
 /* navbar */
+.collapse{
+  height: 7vh;
+  margin-right:10%;
+  margin-left:5%;
+  text-align: center;
+}
 .nav-item{
-    margin:1vw;
+  padding: 0 1.5vw;
 }
-.navbar-nav{
-    padding: 2vw;
-}
-/* .navbar-brand{
-    margin-left: 3vw;
-    font-size: 4rem;
-    text-decoration: underline;
-} */
 .nav-link{
     font-size:x-large;
 }
 .image{
-    height: 10%;
-    width: 25%;
+  padding: 0 !important;
+  margin-left: 10%;
+  min-height: 7vh;
+  min-width: 14vw;
+  max-height: 18%;
+  max-width: 30%;
 }
 .form-inline{
-display: flex;
+display:inline-flex;
+
 }
 .form-control{
 margin-right: 1vw;
