@@ -19,17 +19,23 @@ body{
 .navbar-nav{
     padding: 2vw;
 }
-.navbar-brand{
+/* .navbar-brand{
     margin-left: 3vw;
     font-size: 4rem;
     text-decoration: underline;
-}
+} */
 .nav-link{
     font-size:x-large;
 }
 .image{
     height: 10%;
     width: 25%;
+}
+.form-inline{
+display: flex;
+}
+.form-control{
+margin-right: 1vw;
 }
 
 /* text */
@@ -117,9 +123,9 @@ body{
   transition: background-color 0.6s ease;
 } */
 
-/* .active, .dot:hover {
+.active, .dot:hover {
   background-color: #717171;
-} */
+}
 
 /* Fading animation */
  .fade {

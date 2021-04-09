@@ -9,11 +9,11 @@ body{
 .navbar-nav{
     padding: 2vw;
 }
-.navbar-brand{
+/* .navbar-brand{
     margin-left: 3vw;
     font-size: 4rem;
     text-decoration: underline;
-}
+} */
 .nav-link{
     font-size:x-large;
 }
@@ -21,6 +21,12 @@ body{
     height: 10%;
     width: 25%;
 }
+.form-inline{
+    display: flex;
+    }
+    .form-control{
+    margin-right: 1vw;
+    }
 
 
 /* card layout */
