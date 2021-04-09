@@ -1,11 +1,7 @@
 package com.qa.choonz.rest.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.qa.choonz.persistence.domain.Album;
-import com.qa.choonz.rest.dto.AlbumDTO;
-import com.qa.choonz.rest.dto.ArtistDTO;
-import com.qa.choonz.rest.dto.GenreDTO;
-import com.qa.choonz.rest.dto.TrackDTO;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,7 +16,11 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.util.List;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.qa.choonz.persistence.domain.Album;
+import com.qa.choonz.persistence.domain.Track;
+import com.qa.choonz.rest.dto.AlbumDTO;
+import com.qa.choonz.rest.dto.TrackDTO;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
@@ -34,13 +34,13 @@ public class AlbumControllerIntegrationTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    private TrackDTO validTrack;
-    private ArtistDTO validArtist;
-    private GenreDTO validGenre;
+    private Track validTrack = new Track("In da club");
+    private TrackDTO validTrackDTO = new TrackDTO(1, "In da club");
+    
+    private List<Track> validTracks = List.of(validTrack);
+    private List<TrackDTO> validTrackDTOs = List.of(validTrackDTO);
 
-    private List<TrackDTO> validTracks;
-
-    private AlbumDTO validAlbumDTO = new AlbumDTO(1, "issa");
+    private AlbumDTO validAlbumDTO = new AlbumDTO(1, "issa", validTrackDTOs);
     private List<AlbumDTO> validAlbumDTOs = List.of(validAlbumDTO);
 
     @Test
@@ -79,6 +79,7 @@ public class AlbumControllerIntegrationTest {
         mvc.perform(mockRequest)
                 .andExpect(statusMatcher)
                 .andExpect(contentMatcher);
+
     }
 
     @Test
@@ -98,7 +99,7 @@ public class AlbumControllerIntegrationTest {
 
     @Test
     public void updateTest() throws Exception {
-        Album updatedAlbum = new Album("UpdatedName2");
+        Album updatedAlbum = new Album("UpdatedName");
         AlbumDTO expectedAlbum = new AlbumDTO(1, "UpdatedName");
 
         MockHttpServletRequestBuilder mockRequest =
@@ -132,5 +133,5 @@ public class AlbumControllerIntegrationTest {
                 .andExpect(statusMatcher)
                 .andExpect(contentMatcher);
     }
-
+    
 }
