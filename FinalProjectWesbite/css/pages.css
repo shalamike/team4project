@@ -1,0 +1,67 @@
+body{
+    background-color: #262729;
+}
+
+/* navbar */
+.collapse{
+    height: 7vh;
+    margin-right:10%;
+    margin-left:5%;
+    text-align: center;
+  }
+  .nav-item{
+    padding: 0 1.5vw;
+  }
+  .nav-link{
+      font-size:x-large;
+  }
+  .image{
+    padding: 0 !important;
+    margin-left: 10%;
+    min-height: 7vh;
+    min-width: 14vw;
+    max-height: 18%;
+    max-width: 30%;
+  }
+  .form-inline{
+  display:inline-flex;
+  
+  }
+  .form-control{
+  margin-right: 1vw;
+  }
+
+
+/* card layout */
+.card{
+    background-color: #262729;
+    outline: white;
+    outline-style:ridge;
+}
+
+.headers{
+    color: white;
+    font-size: xx-large;
+    text-decoration: underline;
+    text-align: center;
+}
+
+/* buttons centered */
+.createButton{
+    text-align: center;
+    padding: 1vw 1vh;
+}
+.updateButton{
+    text-align: center;
+    padding: 1vw 1vh;
+}
+
+/* modal layout */
+.modal-body{
+    margin-left: 1vw;
+}
+
+/* active tab coloured */
+.active, .dot:hover {
+    background-color: #717171;
+  }
