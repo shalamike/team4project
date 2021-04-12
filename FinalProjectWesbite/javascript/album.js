@@ -1,13 +1,13 @@
 'use strict';
 
-fetch("http://localhost:8090/Artist").then(response => {
+fetch("http://localhost:8090/artists/read").then(response => {
     if(response.status != 200) {
         console.error(response);
 
     }
     return response.json();
 }).then(data => {
-    let Artist_select = document.querySelector("#ArtistName");
+    let Artist_select = document.querySelector("#createArtistName");
     data.forEach(artist => {
     let option = document.createElement("option");
     option.value = artist.id;
@@ -16,14 +16,14 @@ fetch("http://localhost:8090/Artist").then(response => {
     });
 }).catch(err => console.error(err));
 
-fetch("http://localhost:8090/Genre").then(response => {
+fetch("http://localhost:8090/genres/read").then(response => {
     if(response.status != 200) {
         console.error(response);
 
     }
     return response.json();
 }).then(data => {
-    let Genre_select = document.querySelector("#GenreName");
+    let Genre_select = document.querySelector("#createGenreName");
     data.forEach(Genre => {
     let options = document.createElement("options");
     options.value = Genre.id;

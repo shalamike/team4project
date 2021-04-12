@@ -98,13 +98,15 @@
                                     <label>Name of Album</label>
                                     <input type="text" id="createAlbumName" name="createAlbumName">
                                 </div>
-                                <div class="mb-3">
-                                    <label>Name of Artist</label>
-                                    <input type="text" id="createArtistName" name="createArtistName">
+                                <div>
+                                <label>Name of Artist</label>
+                                    <!-- <input type="text" id="createArtistName" name="createArtistName"> -->
+                                    <select class="form-select" id="ArtistName" name="ArtistName" aria-label="Default select example"></select>
                                 </div>
                                 <div class="mb-3">
                                     <label>Genre</label>
-                                    <input type="text" id="createGenre" name="createGenre">
+                                    <!-- <input type="text" id="createGenre" name="createGenre"> -->
+                                    <select class="form-select" id="GenreName" name="GenreName" aria-label="Default select example"></select>
                                 </div>
                                 <div class="mb-3">
                                     <label>Cover (description)</label>
@@ -197,6 +199,7 @@
             </div>
         </div>
 
+        <script src="/javascript/album.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
             crossorigin="anonymous"></script>

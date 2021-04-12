@@ -10,12 +10,14 @@ function fetchArtists(){
             return;
         }
         response.json() // 3
-        .then(data => console.info(data))
-        //.then(data  => parseUserData(data))// 4
+        //.then(data => console.info(data))
+        .then(data  => createArtistCard(data))// 4
     }).catch((err)=> console.error(`${err}`)); // 5
 }
 
-function parse(){}
+function createArtistCard(data){
+  
+}
 
 function createArtist() {
     fetch("http://localhost:8090/artists/create", {
