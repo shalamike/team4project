@@ -16,7 +16,7 @@ function fetchArtists(){
 }
 
 function createArtistCard(data){
-  
+  console.log(data);
 }
 
 function createArtist() {
@@ -26,7 +26,7 @@ function createArtist() {
           "Content-type": "application/json"
       },
         body: JSON.stringify({
-           name: document.querySelector("#createArtistname").value
+           name: document.querySelector("#createArtistName").value
          })
         })
         .then(res => {
