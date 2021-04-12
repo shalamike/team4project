@@ -1,6 +1,19 @@
+
 'use strict';
 
-
+function fetchArtists(){
+  fetch("http://localhost:8090/artists/read") // 1
+    .then(response => {
+        if (response.status !== 200) {  //  2
+            console.log(response.status);
+            console.error(`status: ${reponse.status}`);
+            return;
+        }
+        response.json() // 3
+        .then(data => console.info(data))
+        //.then(data  => parseUserData(data))// 4
+    }).catch((err)=> console.error(`${err}`)); // 5
+}
 
 function createArtist() {
     fetch("http://localhost:8090/Artist/", {
@@ -28,7 +41,7 @@ function createArtist() {
 
 
 
-     function updateArtist(){
+    function updateArtist(){
     let Aid= parseInt(document.querySelector("#updateArtistId").value)
     fetch("http://localhost:8080/artist/"+Aid, {
        method: 'put',
