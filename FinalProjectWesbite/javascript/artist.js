@@ -10,9 +10,41 @@ function fetchArtists(){
             return;
         }
         response.json() // 3
-        .then(data => console.info(data))
-        //.then(data  => parseUserData(data))// 4
+        //.then(data => console.info(data))
+        .then(data  => createArtistsCards(data))// 4
     }).catch((err)=> console.error(`${err}`)); // 5
+}
+
+function createArtistsCards(data){
+
+  console.log(data);
+  //deleteTable();
+
+ let table = document.querySelector("#artistResultSet");
+ let row =  document.createElement('tr');
+ let idHeader = document.createElement('th');
+ let nameHeader = document.createElement('th')
+ idHeader.innerHTML= "Artist-ID";
+ nameHeader.innerHTML = "Artist Name";
+ table.appendChild(row);
+ for(let i = 0; i<data.length; i++){
+   console.log(data[i].name); 
+   let row = document.createElement('tr');
+   let cell1 = document.createElement('td')
+   let cell2 = document.createElement('td');
+   cell1.innerHTML = data[i].id;
+   cell2.innerHTML = data[i].name;
+   row.appendChild(cell1);
+   row.appendChild(cell2);
+   table.appendChild(row); 
+ }
+}
+
+function deleteTable(){
+  for (let i = document.querySelector("#artistResultSet").rows.length-1; i>0; i--){
+    document.querySelector('artistResultSet').deleteRow(i);
+    console.log("deleted row");
+  }
 }
 
 function createArtist() {
