@@ -16,13 +16,13 @@ function fetchArtists(){
 }
 
 function createArtist() {
-    fetch("http://localhost:8090/Artist/", {
+    fetch("http://localhost:8090/artists/create", {
        method: 'post',
         headers: {
           "Content-type": "application/json"
       },
         body: JSON.stringify({
-           name: document.querySelector("#createArtistname").value
+           name: document.querySelector("#createArtistName").value
          })
         })
         .then(res => {
