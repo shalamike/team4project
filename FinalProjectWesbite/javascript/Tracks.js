@@ -93,17 +93,17 @@ function createTracks() {
 
     
 
-     function updateTracks(){
-    let Tid= parseInt(document.querySelector("#updateTracks").value)
-    fetch("http://localhost:8080/Tracks/"+Tid, {
+    function updateTracks(){
+      let Tid= parseInt(document.querySelector("#updateTrackId").value)
+      fetch("http://localhost:8090/tracks/update/"+Tid, {
        method: 'put',
         headers: {
           "Content-type": "application/json"
-      },
+        },
         body: JSON.stringify({
-            name: document.querySelector("#createTracksname"),
-            Time: document.querySelector("#Duration").value,
-            Lyrics: document.querySelector("#createLyrics").value
+            "name": document.querySelector("#updateTrackName").value,
+            "duration": document.querySelector("#updateTracksDuration").value,
+            "lyrics": document.querySelector("#updateTracksLyrics").value
            
          })
         })
@@ -123,8 +123,8 @@ function createTracks() {
 
 
     function delete_Tracks() {
-        let pid= parseInt(document.querySelector("#DA_id").value)
-         fetch("http://localhost:8080/Tracks/"+pid, {//2
+        let pid= parseInt(document.querySelector("#delIdCheck").value)
+         fetch("http://localhost:8090/tracks/delete/"+pid, {//2
              method: 'delete',//3
            })
            .then((data) => {

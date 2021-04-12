@@ -157,7 +157,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label>Duration of Track</label>
-                                    <input type="time" id="updateTracksDuration" name="updateTracksduration">
+                                    <input type="number" id="updateTracksDuration" name="updateTracksduration">
                                 </div>
                                 <div class="mb-3">
                                     <label>Lyrics</label>
@@ -165,7 +165,7 @@
                                 </div>
                                 <!-- make submit button -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-default" data-bs-dismiss="modal" onclick="updateTracks()">update</button>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +185,7 @@
                     <label id="delData" class="form-label" for="delData">Enter the Track ID you want to Delete</label>
                     <input type="number" class="form-control" name="delIdCheck" id="delIdCheck">
                 </div>
-                <button type="button" class="btn btn-outline-light">
+                <button type="button" class="btn btn-outline-light" onclick="delete_Tracks()">
                     Delete a Track
                 </button>
             </div>
