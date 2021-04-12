@@ -18,16 +18,19 @@ function fetchArtists(){
 function createArtistsCards(data){
 
   console.log(data);
-  //deleteTable();
+  deleteTable();
 
- let table = document.querySelector("#artistResultSet");
- let row =  document.createElement('tr');
- let idHeader = document.createElement('th');
- let nameHeader = document.createElement('th')
- idHeader.innerHTML= "Artist-ID";
- nameHeader.innerHTML = "Artist Name";
- table.appendChild(row);
- for(let i = 0; i<data.length; i++){
+  let table = document.querySelector("#artistResultSet");
+  let row =  document.createElement('tr');
+  let idHeader = document.createElement('th');
+  let nameHeader = document.createElement('th')
+  idHeader.innerHTML= "Artist-ID";
+  nameHeader.innerHTML = "Artist Name";
+  row.appendChild(idHeader);
+  row.appendChild(nameHeader);
+  table.appendChild(row);
+
+  for(let i = 0; i<data.length; i++){
    console.log(data[i].name); 
    let row = document.createElement('tr');
    let cell1 = document.createElement('td')
@@ -41,8 +44,9 @@ function createArtistsCards(data){
 }
 
 function deleteTable(){
-  for (let i = document.querySelector("#artistResultSet").rows.length-1; i>0; i--){
-    document.querySelector('artistResultSet').deleteRow(i);
+  let i = document.getElementById("artistResultSet").rows.length-1
+  for (i; i>=0; i--){
+    document.getElementById('artistResultSet').deleteRow(i);
     console.log("deleted row");
   }
 }
