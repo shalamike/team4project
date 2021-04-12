@@ -83,8 +83,6 @@ function createArtist() {
         body: JSON.stringify({
            name: document.querySelector("#personname").value,
            
-            
-           
          })
         })
         .then(res => {
