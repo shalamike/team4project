@@ -1,5 +1,8 @@
 
+'use strict';
 function fetchplay(){
+
+
   fetch("http://localhost:8090/playlists/read") // 1
     .then(response => {
         if (response.status !== 200) {  //  2
