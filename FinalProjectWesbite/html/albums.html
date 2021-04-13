@@ -80,7 +80,7 @@
                 <!-- Trigger the modal with a button -->
                 <div class="createButton">
                     <button type="button" id="createButton" class="btn btn-outline-light" data-bs-toggle="modal"
-                        data-bs-target="#myModal">
+                        data-bs-target="#myModal" onclick="get_Aristsandgenre('#ArtistName','#GenreName');">
                         Create an album
                     </button>
                 </div>
@@ -134,7 +134,7 @@
                     <!-- Trigger the modal with a button -->
                     <div class="updateButton">
                         <button type="button" id="updateButton" class="btn btn-outline-light" data-bs-toggle="modal"
-                            data-bs-target="#myModal2">
+                            data-bs-target="#myModal2" onclick="get_Aristsandgenre('#uArtistName','#uGenreName');">
                             Update an album
                         </button>
                     </div>
@@ -162,12 +162,12 @@
                                     <div class="mb-3">
                                         <label>Name of Artist</label>
                                         <!-- <input type="text" id="updateArtistName" name="updateArtistName"> -->
-                                        <select class="form-select" id="ArtistName" name="ArtistName" aria-label="Default select example"></select>
+                                        <select class="form-select" id="uArtistName" name="ArtistName" aria-label="Default select example"></select>
                                     </div>
                                     <div class="mb-3">
                                         <label>Genre</label>
                                         <!-- <input type="text" id="updateGenre" name="updateGenre"> -->
-                                        <select class="form-select" id="GenreName" name="GenreName" aria-label="Default select example"></select>
+                                        <select class="form-select" id="uGenreName" name="GenreName" aria-label="Default select example"></select>
                                     </div>
                                     <div class="mb-3">
                                         <label>Cover (description)</label>

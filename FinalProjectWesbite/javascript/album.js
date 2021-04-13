@@ -1,5 +1,13 @@
 'use strict';
-//function get_Aristsandgenre(){
+function get_Aristsandgenre(ArtistDropdownID,GenreDropdownID){
+  let Artist_select = document.querySelector(ArtistDropdownID);
+  let Genre_select = document.querySelector(GenreDropdownID);
+  while(Artist_select.firstChild){
+    Artist_select.removeChild(Artist_select.firstChild)
+  }
+  while(Genre_select.firstChild){
+    Genre_select.removeChild(Genre_select.firstChild)
+  }
 fetch("http://localhost:8090/artists/read").then(response => {
     if(response.status != 200) {
         console.error(response);
@@ -7,7 +15,6 @@ fetch("http://localhost:8090/artists/read").then(response => {
     }
     return response.json();
 }).then(data => {
-    let Artist_select = document.querySelector("#ArtistName");
     data.forEach(artist => {
     let option = document.createElement("option");
     option.value = artist.id;
@@ -25,16 +32,15 @@ fetch("http://localhost:8090/genres/read").then(response => {
     }
     return response.json();
 }).then(data => {
-    let Genre_select = document.querySelector("#GenreName");
     data.forEach(Genre => {
-    let options = document.createElement("options");
+    let options = document.createElement("option");
     options.value = Genre.id;
     options.text = Genre.name;
-    // options.text += Genre.description;
+    //options.text += Genre.description;
     Genre_select.appendChild(options);  
     });
 }).catch(err => console.error(err));
-//}
+}
 
 
 function createAlbum() {
@@ -45,8 +51,8 @@ function createAlbum() {
       },
         body: JSON.stringify({
            name: document.querySelector("#createAlbumName").value,
-           ArtistName: document.querySelector("#ArtistName").value,
-           GenreName: document.querySelector("#GenreName").value,
+           ArtistName: {id: document.querySelector("#ArtistName").value},
+           GenreName: {id: document.querySelector("#GenreName").value},
            description: document.querySelector("#createCover").value
 
          })
