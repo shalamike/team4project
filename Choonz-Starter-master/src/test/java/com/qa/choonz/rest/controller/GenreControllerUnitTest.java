@@ -8,9 +8,6 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.qa.choonz.persistence.domain.Album;
-import com.qa.choonz.rest.controller.GenreController;
-import com.qa.choonz.rest.dto.AlbumDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

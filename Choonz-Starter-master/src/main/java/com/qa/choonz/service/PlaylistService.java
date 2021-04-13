@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 import com.qa.choonz.mappers.PlaylistMapper;
 import org.springframework.stereotype.Service;
-
 import com.qa.choonz.exception.PlaylistNotFoundException;
 import com.qa.choonz.persistence.domain.Playlist;
 import com.qa.choonz.persistence.repository.PlaylistRepository;
@@ -48,8 +47,12 @@ public class PlaylistService {
     }
 
     public boolean delete(long id) {
-        this.repo.deleteById(id);
-        return !this.repo.existsById(id);
+		if (repo.existsById(id)) {
+			repo.deleteById(id);
+			return true;
+		} else {
+			throw new PlaylistNotFoundException();
+		}
     }
 
 }

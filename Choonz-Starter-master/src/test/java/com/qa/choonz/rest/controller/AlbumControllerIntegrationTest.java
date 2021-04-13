@@ -1,17 +1,14 @@
 package com.qa.choonz.rest.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.qa.choonz.persistence.domain.Album;
-import com.qa.choonz.rest.dto.AlbumDTO;
-import com.qa.choonz.rest.dto.ArtistDTO;
-import com.qa.choonz.rest.dto.GenreDTO;
-import com.qa.choonz.rest.dto.TrackDTO;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.web.servlet.MockMvc;
@@ -20,9 +17,15 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.util.List;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.qa.choonz.mappers.AlbumMapper;
+import com.qa.choonz.persistence.domain.Album;
+import com.qa.choonz.persistence.domain.Track;
+import com.qa.choonz.rest.dto.AlbumDTO;
+import com.qa.choonz.rest.dto.TrackDTO;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ActiveProfiles("test")
 @AutoConfigureMockMvc
 @Sql(scripts = { "classpath:test-schema.sql", "classpath:test-data.sql" },
         executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
@@ -30,40 +33,43 @@ public class AlbumControllerIntegrationTest {
 
     @Autowired
     private MockMvc mvc;
+    
+    @Autowired
+    private AlbumMapper albumMapper;
 
     @Autowired
     private ObjectMapper objectMapper;
 
-    private TrackDTO validTrack;
-    private ArtistDTO validArtist;
-    private GenreDTO validGenre;
+    private Track validTrack = new Track("In da club");
+    private TrackDTO validTrackDTO = new TrackDTO(1, "In da club");
+    
+    private List<Track> validTracks = List.of(validTrack);
+    private List<TrackDTO> validTrackDTOs = List.of(validTrackDTO);
 
-    private List<TrackDTO> validTracks;
-
-    private AlbumDTO validAlbumDTO = new AlbumDTO(1, "issa");
+    private AlbumDTO validAlbumDTO = new AlbumDTO(1, "issa", validTrackDTOs);
     private List<AlbumDTO> validAlbumDTOs = List.of(validAlbumDTO);
 
     @Test
     public void createTest() throws Exception {
         Album albumToSave = new Album("issa");
-        AlbumDTO expectedToDoList = new AlbumDTO(1, "issa");
+        AlbumDTO expectedAlbum = new AlbumDTO(1, "issa");
 
         MockHttpServletRequestBuilder mockRequest =
                 MockMvcRequestBuilders.request(HttpMethod.POST, "/albums/create");
 
         mockRequest.contentType(MediaType.APPLICATION_JSON);
         mockRequest.content(objectMapper.writeValueAsString(albumToSave));
-
         mockRequest.accept(MediaType.APPLICATION_JSON);
 
         ResultMatcher statusMatcher = MockMvcResultMatchers.status().isCreated();
 
         ResultMatcher contentMatcher = MockMvcResultMatchers.content()
-                .json(objectMapper.writeValueAsString(expectedToDoList));
+                .json(objectMapper.writeValueAsString(expectedAlbum));
 
         mvc.perform(mockRequest)
                 .andExpect(statusMatcher)
                 .andExpect(contentMatcher);
+    	
     }
 
     @Test
@@ -98,7 +104,7 @@ public class AlbumControllerIntegrationTest {
 
     @Test
     public void updateTest() throws Exception {
-        Album updatedAlbum = new Album("UpdatedName2");
+        Album updatedAlbum = new Album("UpdatedName");
         AlbumDTO expectedAlbum = new AlbumDTO(1, "UpdatedName");
 
         MockHttpServletRequestBuilder mockRequest =
@@ -132,5 +138,5 @@ public class AlbumControllerIntegrationTest {
                 .andExpect(statusMatcher)
                 .andExpect(contentMatcher);
     }
-
+    
 }

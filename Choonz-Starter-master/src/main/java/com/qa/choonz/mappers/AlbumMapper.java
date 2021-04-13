@@ -1,6 +1,5 @@
 package com.qa.choonz.mappers;
 
-
 import com.qa.choonz.persistence.domain.Album;
 import com.qa.choonz.rest.dto.AlbumDTO;
 

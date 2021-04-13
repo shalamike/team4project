@@ -42,7 +42,7 @@ public class TrackController {
         return new ResponseEntity<>(this.service.update(track, id), HttpStatus.OK);
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable long id) {
         return this.service.delete(id) ? new ResponseEntity<>(true, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);

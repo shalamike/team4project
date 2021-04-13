@@ -42,6 +42,12 @@ public class Track {
         super();
         this.name = name;
     }
+    
+    public Track(Long id, @NotNull @Size(max = 100) String name) {
+        super();
+        this.id = id;
+        this.name = name;
+    }
 
     public Track(@NotNull @Size(max = 100) String name, Album album, int duration,
                  String lyrics) {
