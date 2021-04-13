@@ -1,4 +1,6 @@
 
+'use strict';
+console.log("starting");
 function fetchPlaylists(){
   console.log("fetching");
   fetch("http://localhost:8090/playlists/read") // 1
