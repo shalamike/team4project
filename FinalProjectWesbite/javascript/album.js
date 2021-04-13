@@ -1,6 +1,6 @@
 'use strict';
-
-fetch("http://localhost:8090/Artist").then(response => {
+//function get_Aristsandgenre(){
+fetch("http://localhost:8090/artists/read").then(response => {
     if(response.status != 200) {
         console.error(response);
 
@@ -16,7 +16,9 @@ fetch("http://localhost:8090/Artist").then(response => {
     });
 }).catch(err => console.error(err));
 
-fetch("http://localhost:8090/Genre").then(response => {
+
+
+fetch("http://localhost:8090/genres/read").then(response => {
     if(response.status != 200) {
         console.error(response);
 
@@ -28,29 +30,29 @@ fetch("http://localhost:8090/Genre").then(response => {
     let options = document.createElement("options");
     options.value = Genre.id;
     options.text = Genre.name;
-    options.text = Genre.description;
+    // options.text += Genre.description;
     Genre_select.appendChild(options);  
     });
 }).catch(err => console.error(err));
-
+//}
 
 
 function createAlbum() {
-    fetch("http://localhost:8090/Album/", {
+    fetch("http://localhost:8090/albums/create", {
        method: 'post',
         headers: {
           "Content-type": "application/json"
       },
         body: JSON.stringify({
-           name: document.querySelector("#createArtistname"),
-           ArtistName: document.querySelector("#createArtistname").value,
-           GenreName: document.querySelector("#createGenre").value,
+           name: document.querySelector("#createAlbumName").value,
+           ArtistName: document.querySelector("#ArtistName").value,
+           GenreName: document.querySelector("#GenreName").value,
            description: document.querySelector("#createCover").value
 
          })
         })
         .then(res => {
-          if(res.status!=200){
+          if(res.status!=201){
               console.error(res)
           }  
             res.json()})
@@ -60,16 +62,18 @@ function createAlbum() {
        .catch((error)=> {
            console.log(`Request failed ${error}`);
      });
+    }
     
 
-    let Aid= parseInt(document.querySelector("#updateAlbumId").value)
-    fetch("http://localhost:8080/Album/"+Aid, {
+    function updatealbum(){
+     let Aid= parseInt(document.querySelector("#updateAlbumId").value)
+    fetch("http://localhost:8080/albums/update/"+Aid, {
        method: 'put',
         headers: {
           "Content-type": "application/json"
       },
         body: JSON.stringify({
-            name: document.querySelector("#createArtistname"),
+            name: document.querySelector("#createArtistname").value,
             ArtistName: document.querySelector("#createArtistname").value,
             GenreName: document.querySelector("#createGenre").value,
             description: document.querySelector("#createCover").value
@@ -95,7 +99,7 @@ function createAlbum() {
 
     function delete_album() {
         let pid= parseInt(document.querySelector("#DA_id").value)
-         fetch("http://localhost:8080/album/"+pid, {//2
+         fetch("http://localhost:8080/album/delete/"+pid, {//2
              method: 'delete',//3
            })
            .then((data) => {
