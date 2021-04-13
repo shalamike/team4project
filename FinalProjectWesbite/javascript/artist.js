@@ -62,7 +62,7 @@ function createArtist() {
          })
         })
         .then(res => {
-          if(res.status!=200){
+          if(res.status!=201){
               console.error(res)
           }  
             res.json()})
@@ -79,13 +79,13 @@ function createArtist() {
 
     function updateArtist(){
     let Aid= parseInt(document.querySelector("#updateArtistId").value)
-    fetch("http://localhost:8080/artist/"+Aid, {
+    fetch("http://localhost:8090/artists/update/"+Aid, {
        method: 'put',
         headers: {
           "Content-type": "application/json"
       },
         body: JSON.stringify({
-           name: document.querySelector("#personname").value,
+           name: document.querySelector("#updateArtistName").value,
            
          })
         })
@@ -103,8 +103,8 @@ function createArtist() {
     }
 
     function delete_artist() {
-        let pid= parseInt(document.querySelector("#DA_id").value)
-         fetch("http://localhost:8080/artist/"+pid, {//2
+        let pid= parseInt(document.querySelector("#delIdCheck").value)
+         fetch("http://localhost:8090/artists/delete/"+pid, {//2
              method: 'delete',//3
            })
            .then((data) => {
