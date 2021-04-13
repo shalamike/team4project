@@ -51,6 +51,7 @@ public class AlbumService {
     public boolean delete(long id) {
 		if (repo.existsById(id)) {
 			repo.deleteById(id);
+			
 			return true;
 		} else {
 			throw new AlbumNotFoundException();

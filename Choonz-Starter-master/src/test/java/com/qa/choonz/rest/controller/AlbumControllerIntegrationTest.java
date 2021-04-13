@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.web.servlet.MockMvc;
@@ -17,12 +18,14 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.qa.choonz.mappers.AlbumMapper;
 import com.qa.choonz.persistence.domain.Album;
 import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.rest.dto.AlbumDTO;
 import com.qa.choonz.rest.dto.TrackDTO;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ActiveProfiles("test")
 @AutoConfigureMockMvc
 @Sql(scripts = { "classpath:test-schema.sql", "classpath:test-data.sql" },
         executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
@@ -30,6 +33,9 @@ public class AlbumControllerIntegrationTest {
 
     @Autowired
     private MockMvc mvc;
+    
+    @Autowired
+    private AlbumMapper albumMapper;
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -46,24 +52,24 @@ public class AlbumControllerIntegrationTest {
     @Test
     public void createTest() throws Exception {
         Album albumToSave = new Album("issa");
-        AlbumDTO expectedToDoList = new AlbumDTO(1, "issa");
+        AlbumDTO expectedAlbum = new AlbumDTO(1, "issa");
 
         MockHttpServletRequestBuilder mockRequest =
                 MockMvcRequestBuilders.request(HttpMethod.POST, "/albums/create");
 
         mockRequest.contentType(MediaType.APPLICATION_JSON);
         mockRequest.content(objectMapper.writeValueAsString(albumToSave));
-
         mockRequest.accept(MediaType.APPLICATION_JSON);
 
         ResultMatcher statusMatcher = MockMvcResultMatchers.status().isCreated();
 
         ResultMatcher contentMatcher = MockMvcResultMatchers.content()
-                .json(objectMapper.writeValueAsString(expectedToDoList));
+                .json(objectMapper.writeValueAsString(expectedAlbum));
 
         mvc.perform(mockRequest)
                 .andExpect(statusMatcher)
                 .andExpect(contentMatcher);
+    	
     }
 
     @Test
@@ -79,7 +85,6 @@ public class AlbumControllerIntegrationTest {
         mvc.perform(mockRequest)
                 .andExpect(statusMatcher)
                 .andExpect(contentMatcher);
-
     }
 
     @Test

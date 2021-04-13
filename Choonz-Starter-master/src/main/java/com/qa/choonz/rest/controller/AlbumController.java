@@ -51,7 +51,7 @@ public class AlbumController {
         return new ResponseEntity<>(this.service.update(album, id), HttpStatus.OK);
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable("id") long id) {
         return this.service.delete(id) ? new ResponseEntity<>(true, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
