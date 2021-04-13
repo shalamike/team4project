@@ -1,5 +1,21 @@
-function createPlylist() {
-    fetch("http://localhost:8090/Playlist", {
+
+function fetchPlaylists(){
+  console.log("fetching");
+  fetch("http://localhost:8090/playlists/read") // 1
+    .then(response => {
+        if (response.status !== 200) {  //  2
+            console.log(response.status);
+            console.error(`status: ${reponse.status}`);
+            return;
+        }
+        response.json() // 3
+        .then(data => console.info(data))
+        //.then(data  => createPlaylistTable(data))// 4
+    }).catch((err)=> console.error(`${err}`)); // 5
+}
+
+function createPlaylist() {
+    fetch("http://localhost:8090/playlists/create", {
        method: 'post',
         headers: {
           "Content-type": "application/json"

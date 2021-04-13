@@ -60,14 +60,18 @@
 
                     </p>
                 </div>
-                <button type="button" class="btn btn-outline-light">
+                <button type="button" class="btn btn-outline-light" onclick="fetchTracks()">
                     Show all Tracks
                 </button>
             </div>
         </div>
     </div>
 </div>
-
+<div id="trackTable">
+    <table id="TrackResultSet">
+        
+    </table>
+</div>
 <!-- Post request bit -->
 
 <div class="card">
@@ -99,7 +103,7 @@
                             </div>
                             <div class="mb-3">
                                 <label>Duration of Track</label>
-                                <input type="time" id="createTracksDuration" name="createTracksduration">
+                                <input type="number" id="createTracksDuration" name="createTracksduration">
                             </div>
                             <div class="mb-3">
                                 <label>Lyrics</label>
@@ -107,7 +111,7 @@
                             </div>
                             <!-- make submit button -->
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" data-bs-dismiss="modal" onclick="createTracks()">create</button>
                             </div>
                         </div>
                     </div>
@@ -153,7 +157,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label>Duration of Track</label>
-                                    <input type="time" id="updateTracksDuration" name="updateTracksduration">
+                                    <input type="number" id="updateTracksDuration" name="updateTracksduration">
                                 </div>
                                 <div class="mb-3">
                                     <label>Lyrics</label>
@@ -161,7 +165,7 @@
                                 </div>
                                 <!-- make submit button -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-default" data-bs-dismiss="modal" onclick="updateTracks()">update</button>
                                 </div>
                             </div>
                         </div>
@@ -181,12 +185,14 @@
                     <label id="delData" class="form-label" for="delData">Enter the Track ID you want to Delete</label>
                     <input type="number" class="form-control" name="delIdCheck" id="delIdCheck">
                 </div>
-                <button type="button" class="btn btn-outline-light">
+                <button type="button" class="btn btn-outline-light" onclick="delete_Tracks()">
                     Delete a Track
                 </button>
             </div>
         </div>
     </div>
+
+    <script src="/javascript/Tracks.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
             crossorigin="anonymous">
