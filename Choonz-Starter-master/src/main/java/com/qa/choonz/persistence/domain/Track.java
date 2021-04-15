@@ -30,7 +30,7 @@ public class Track {
     private Playlist playlist;
 
     // in seconds
-    private int duration;
+    private Integer duration;
 
     private String lyrics;
 

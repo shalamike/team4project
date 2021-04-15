@@ -2,6 +2,7 @@ package com.qa.choonz.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.qa.choonz.mappers.AlbumMapper;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,9 @@ public class AlbumService {
     }
 
     public List<AlbumDTO> read() {
-        return this.repo.findAll().stream().map(albumMapper::mapToDTO).collect(Collectors.toList());
+
+    	return this.repo.findAll().stream().map(albumMapper::mapToDTO).collect(Collectors.toList());
+
     }
 
     public AlbumDTO read(long id) {
@@ -41,7 +44,7 @@ public class AlbumService {
         Album toUpdate = this.repo.findById(id).orElseThrow(AlbumNotFoundException::new);
         toUpdate.setName(album.getName());
         toUpdate.setTracks(album.getTracks());
-        toUpdate.setArtist(album.getArtist());
+        toUpdate.setArtists(album.getArtists());
         toUpdate.setGenre(album.getGenre());
         toUpdate.setCover(album.getCover());
         Album updated = this.repo.save(toUpdate);

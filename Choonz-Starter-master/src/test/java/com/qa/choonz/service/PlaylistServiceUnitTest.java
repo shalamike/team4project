@@ -93,7 +93,7 @@ public class PlaylistServiceUnitTest {
 	public void deletePlaylistTest() {
 		when(playlistRepo.existsById(Mockito.any(Long.class))).thenReturn(true);
 
-        assertThat(false).isEqualTo(playlistService.delete(validPlaylist.getId()));
+        assertThat(true).isEqualTo(playlistService.delete(validPlaylist.getId()));
 
         verify(playlistRepo, times(1)).existsById(Mockito.any(Long.class));
         verify(playlistRepo, times(1)).deleteById(Mockito.any(Long.class));

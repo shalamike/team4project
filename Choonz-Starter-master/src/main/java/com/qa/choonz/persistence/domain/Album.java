@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 public class Album {
 
     @Id
+    @Column(name = "album_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -18,11 +19,15 @@ public class Album {
     @Column(unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "album_id")
     private List<Track> tracks;
 
-    @ManyToOne
-    private Artist artist;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "Artist_Album",
+		joinColumns = @JoinColumn(name = "album_id", referencedColumnName = "album_id"),
+	    inverseJoinColumns = @JoinColumn(name = "artist_id", referencedColumnName = "artist_id"))
+    private List<Artist> artists;
 
     @ManyToOne
     private Genre genre;
@@ -44,13 +49,13 @@ public class Album {
         this.tracks = tracks;
     }
 
-    public Album(long id, @NotNull @Size(max = 100) String name, List<Track> tracks, Artist artist, Genre genre,
+    public Album(long id, @NotNull @Size(max = 100) String name, List<Track> tracks, List<Artist> artists, Genre genre,
             String cover) {
         super();
         this.id = id;
         this.name = name;
         this.tracks = tracks;
-        this.artist = artist;
+        this.artists = artists;
         this.genre = genre;
         this.cover = cover;
     }
@@ -79,12 +84,16 @@ public class Album {
         this.tracks = tracks;
     }
 
-    public Artist getArtist() {
-        return artist;
+    public List<Artist> getArtists() {
+        return artists;
+    }
+    
+    public void setArtists(List<Artist> artists) {
+    	this.artists = artists;
     }
 
-    public void setArtist(Artist artist) {
-        this.artist = artist;
+    public void addArtist(Artist artist) {
+        artists.add(artist);
     }
 
     public Genre getGenre() {
@@ -107,7 +116,7 @@ public class Album {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("Album [id=").append(id).append(", name=").append(name).append(", tracks=").append(tracks)
-                .append(", artist=").append(artist).append(", genre=").append(genre).append(", cover=").append(cover)
+                .append(", artist=").append(artists).append(", genre=").append(genre).append(", cover=").append(cover)
                 .append("]");
         return builder.toString();
     }
@@ -116,7 +125,7 @@ public class Album {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((artist == null) ? 0 : artist.hashCode());
+		result = prime * result + ((artists == null) ? 0 : artists.hashCode());
 		result = prime * result + ((cover == null) ? 0 : cover.hashCode());
 		result = prime * result + ((genre == null) ? 0 : genre.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
@@ -134,10 +143,10 @@ public class Album {
 		if (getClass() != obj.getClass())
 			return false;
 		Album other = (Album) obj;
-		if (artist == null) {
-			if (other.artist != null)
+		if (artists == null) {
+			if (other.artists != null)
 				return false;
-		} else if (!artist.equals(other.artist))
+		} else if (!artists.equals(other.artists))
 			return false;
 		if (cover == null) {
 			if (other.cover != null)

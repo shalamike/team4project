@@ -2,6 +2,7 @@ package com.qa.choonz.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.qa.choonz.mappers.ArtistMapper;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,8 @@ public class ArtistService {
     }
 
     public List<ArtistDTO> read() {
-        return this.repo.findAll().stream().map(artistMapper::mapToDTO).collect(Collectors.toList());
+        Stream<ArtistDTO> test = this.repo.findAll().stream().map(artistMapper::mapToDTO);
+        return	test.collect(Collectors.toList());
     }
 
     public ArtistDTO read(long id) {

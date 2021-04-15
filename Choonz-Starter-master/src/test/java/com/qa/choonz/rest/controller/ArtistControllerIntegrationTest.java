@@ -22,8 +22,9 @@ import com.qa.choonz.rest.dto.ArtistDTO;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-@Sql(scripts = { "classpath:test-schema.sql", "classpath:test-data.sql" },
-        executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(scripts = {"classpath:test-data.sql"},
+	executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(scripts = "classpath:test-teardown.sql", executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
 public class ArtistControllerIntegrationTest {
 	
     @Autowired
@@ -32,15 +33,15 @@ public class ArtistControllerIntegrationTest {
     @Autowired
     private ObjectMapper objectMapper;
     
-    private Artist validArtist = new Artist("Test");
-    private ArtistDTO validArtistDTO = new ArtistDTO(1, "Test");
+    private Artist validArtist = new Artist("50 cent");
+    private ArtistDTO validArtistDTO = new ArtistDTO(1, "50 cent");
     
     private List<ArtistDTO> validArtistDTOs = List.of(validArtistDTO);
 	
     @Test
     public void createTest() throws Exception {
         Artist artistToSave = new Artist("New Artist");
-        ArtistDTO expectedArtist = new ArtistDTO(1, "New Artist");
+        ArtistDTO expectedArtist = new ArtistDTO(2, "New Artist");
 
         MockHttpServletRequestBuilder mockRequest =
                 MockMvcRequestBuilders.request(HttpMethod.POST, "/artists/create");

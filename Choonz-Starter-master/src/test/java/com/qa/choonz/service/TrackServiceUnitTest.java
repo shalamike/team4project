@@ -92,7 +92,7 @@ public class TrackServiceUnitTest {
     void deleteTrackTest() {
         when(trackRepo.existsById(Mockito.any(Long.class))).thenReturn(true);
 
-        assertThat(false).isEqualTo(trackService.delete(validTrack.getId()));
+        assertThat(true).isEqualTo(trackService.delete(validTrack.getId()));
 
         verify(trackRepo, times(1)).existsById(Mockito.any(Long.class));
         verify(trackRepo, times(1)).deleteById(Mockito.any(Long.class));

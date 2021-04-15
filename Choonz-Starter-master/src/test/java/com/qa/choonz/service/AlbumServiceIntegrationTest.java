@@ -77,7 +77,7 @@ public class AlbumServiceIntegrationTest {
     @Test
     public void updateTest() {
         Album updatedAlbum = new Album(2, "UpdatedChoonz", tracks,
-                validAlbum.getArtist(), validAlbum.getGenre(), "Cover");
+                validAlbum.getArtists(), validAlbum.getGenre(), "Cover");
         AlbumDTO updatedAlbumInDb = albumService.update(updatedAlbum, validAlbum.getId());
         assertThat(albumMapper.mapToDTO(updatedAlbum)).isEqualTo(updatedAlbumInDb);
     }

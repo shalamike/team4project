@@ -92,7 +92,7 @@ public class ArtistServiceUnitTest {
 	void deleteArtistTeset() {
 		when(artistRepo.existsById(Mockito.any(Long.class))).thenReturn(true);
 
-        assertThat(false).isEqualTo(artistService.delete(validArtist.getId()));
+        assertThat(true).isEqualTo(artistService.delete(validArtist.getId()));
 
         verify(artistRepo, times(1)).existsById(Mockito.any(Long.class));
         verify(artistRepo, times(1)).deleteById(Mockito.any(Long.class));

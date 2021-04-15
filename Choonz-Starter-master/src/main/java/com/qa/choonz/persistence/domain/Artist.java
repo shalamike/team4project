@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 public class Artist {
 
     @Id
+    @Column(name = "artist_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -18,8 +19,11 @@ public class Artist {
     @Size(max = 100)
     @Column(unique = true)
     private String name;
-
-    @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "Artist_Album",
+	    joinColumns = @JoinColumn(name = "artist_id", referencedColumnName = "artist_id"),
+	    inverseJoinColumns = @JoinColumn(name = "album_id", referencedColumnName = "album_id"))
     private List<Album> albums;
 
     public Artist() {
