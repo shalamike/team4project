@@ -27,10 +27,10 @@ function fetchplay(){
     let nameHeader = document.createElement('th');
     let descriptionHeader = document.createElement('th');
     let artworkHeader = document.createElement('th');
-    idHeader.innerHTML= "Play-ID";
-    nameHeader.innerHTML = "Play Name";
-    descriptionHeader.innerHTML = "Play Description";
-    artworkHeader.innerHTML = "Play Artwork";
+    idHeader.innerHTML= "Playlist-ID";
+    nameHeader.innerHTML = "Playlist Name";
+    descriptionHeader.innerHTML = "Playlist Description";
+    artworkHeader.innerHTML = "Playlist Artwork";
     row.appendChild(idHeader);
     row.appendChild(nameHeader);
     row.appendChild(descriptionHeader);
