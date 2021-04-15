@@ -65,3 +65,11 @@ body{
 .active, .dot:hover {
     background-color: #717171;
   }
+
+  th{
+      padding: 2vh 2vw;
+  }
+
+  td{
+    padding: 2vh 2vw;
+  }
