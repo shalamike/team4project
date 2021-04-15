@@ -1,14 +1,11 @@
-INSERT INTO artists(id, name)
+INSERT INTO artist(artist_id, name)
 VALUES(1, '50 cent');
 
-INSERT INTO genres(id, name, description)
+INSERT INTO genre(id, name, description)
 VALUES(1, 'rap', 'good music');
 
-INSERT INTO playlists(id, name, description, artwork)
+INSERT INTO playlist(id, name, description, artwork)
 VALUES(1, 'tunez', 'This song is awesome', 'artwork here');
 
-INSERT INTO albums(id, name)
+INSERT INTO album(album_id, name)
 VALUES(1, 'issa');
-
-INSERT INTO tracks(id, name, album_id)
-VALUES(1,'In da club', 1);

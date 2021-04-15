@@ -91,7 +91,7 @@ public class AlbumServiceUnitTest {
     void deleteAlbumTest() {
         when(albumRepo.existsById(Mockito.any(Long.class))).thenReturn(true);
 
-        assertThat(false).isEqualTo(albumService.delete(validAlbum.getId()));
+        assertThat(true).isEqualTo(albumService.delete(validAlbum.getId()));
 
         verify(albumRepo, times(1)).existsById(Mockito.any(Long.class));
         verify(albumRepo, times(1)).deleteById(Mockito.any(Long.class));

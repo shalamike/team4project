@@ -90,7 +90,7 @@ public class GenreServiceUnitTest {
 	void deleteGenreTest() {
 		when(genreRepo.existsById(Mockito.any(Long.class))).thenReturn(true);
 
-        assertThat(false).isEqualTo(genreService.delete(validGenre.getId()));
+        assertThat(true).isEqualTo(genreService.delete(validGenre.getId()));
 
         verify(genreRepo, times(1)).existsById(Mockito.any(Long.class));
         verify(genreRepo, times(1)).deleteById(Mockito.any(Long.class));

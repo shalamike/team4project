@@ -32,7 +32,6 @@ public class AlbumDTO {
         this.id = id;
         this.name = name;
         this.tracks = tracks;
-
         this.cover = cover;
     }
 

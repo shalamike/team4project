@@ -1,5 +1,6 @@
 package com.qa.choonz.rest.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -27,32 +28,24 @@ import com.qa.choonz.rest.dto.TrackDTO;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @AutoConfigureMockMvc
-@Sql(scripts = { "classpath:test-schema.sql", "classpath:test-data.sql" },
+@Sql(scripts = {"classpath:test-data.sql"},
         executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(scripts = "classpath:test-teardown.sql", executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
 public class AlbumControllerIntegrationTest {
 
     @Autowired
     private MockMvc mvc;
     
     @Autowired
-    private AlbumMapper albumMapper;
-
-    @Autowired
     private ObjectMapper objectMapper;
 
-    private Track validTrack = new Track("In da club");
-    private TrackDTO validTrackDTO = new TrackDTO(1, "In da club");
-    
-    private List<Track> validTracks = List.of(validTrack);
-    private List<TrackDTO> validTrackDTOs = List.of(validTrackDTO);
-
-    private AlbumDTO validAlbumDTO = new AlbumDTO(1, "issa", validTrackDTOs);
+    private AlbumDTO validAlbumDTO = new AlbumDTO(1, "issa", new ArrayList<TrackDTO>());
     private List<AlbumDTO> validAlbumDTOs = List.of(validAlbumDTO);
 
     @Test
     public void createTest() throws Exception {
-        Album albumToSave = new Album("issa");
-        AlbumDTO expectedAlbum = new AlbumDTO(1, "issa");
+        Album albumToSave = new Album("not issa");
+        AlbumDTO expectedAlbum = new AlbumDTO(2, "not issa");
 
         MockHttpServletRequestBuilder mockRequest =
                 MockMvcRequestBuilders.request(HttpMethod.POST, "/albums/create");
@@ -69,7 +62,6 @@ public class AlbumControllerIntegrationTest {
         mvc.perform(mockRequest)
                 .andExpect(statusMatcher)
                 .andExpect(contentMatcher);
-    	
     }
 
     @Test

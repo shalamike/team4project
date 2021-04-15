@@ -100,3 +100,9 @@ Tracks
                                 <input type="text" id="createTracksLyrics" name="createTracksLyrics">
                             </div>
 
+
+{
+    "name":"Mario",
+    "albums": [{"name":"Mario's mix"}, {"name":"Mario's Mix2"}]
+}
+
