@@ -1,0 +1,388 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 154577800,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I can access Choonz",
+            "match": {
+              "location": "Navigation.I_can_access_Choonz()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 2572853600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Navigation.init()"
+            }
+          },
+          {
+            "result": {
+              "duration": 2116998800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "DataHandling.init()"
+            }
+          }
+        ],
+        "line": 6,
+        "name": "Navigating using the header",
+        "description": "",
+        "id": "navigateonchoonz;navigating-using-the-header",
+        "after": [
+          {
+            "result": {
+              "duration": 524875300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Navigation.cleanUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 517044900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "DataHandling.cleanUp()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 40300,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 7,
+                "value": "# artists page"
+              }
+            ],
+            "line": 8,
+            "name": "user clicks on the artists tab",
+            "match": {
+              "location": "Navigation.user_clicks_on_the_artists_tag()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 65100,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "user accecesses artists",
+            "match": {
+              "location": "Navigation.Web_page_navigates_to_the_artists_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 56800,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 11,
+                "value": "#albums page"
+              }
+            ],
+            "line": 12,
+            "name": "user clicks on albums tab",
+            "match": {
+              "location": "Navigation.user_clicks_on_albums_tab()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 46900,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "user accecesses albums",
+            "match": {
+              "location": "Navigation.user_accecesses_albums()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 41600,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 16,
+                "value": "#Playlists page"
+              }
+            ],
+            "line": 17,
+            "name": "User clicks on playlists page",
+            "match": {
+              "location": "Navigation.user_clicks_on_playlists_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 55000,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "user accesses playlists",
+            "match": {
+              "location": "Navigation.user_accesses_playlists()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 32900,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 21,
+                "value": "#tracks page"
+              }
+            ],
+            "line": 22,
+            "name": "user clicsk on tracks page",
+            "match": {
+              "location": "Navigation.user_clicsk_on_tracks_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 39100,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "user accesses tracks",
+            "match": {
+              "location": "Navigation.user_accesses_tracks()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 26100,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 26,
+                "value": "#Genres page"
+              }
+            ],
+            "line": 27,
+            "name": "user clicks on genres page",
+            "match": {
+              "location": "Navigation.user_clicks_on_genres_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 62400,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "user accesses genres page",
+            "match": {
+              "location": "Navigation.user_accesses_genres_page()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 53000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I can access Choonz",
+            "match": {
+              "location": "Navigation.I_can_access_Choonz()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 2120693200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Navigation.init()"
+            }
+          },
+          {
+            "result": {
+              "duration": 2105877400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "DataHandling.init()"
+            }
+          }
+        ],
+        "line": 31,
+        "name": "entering data",
+        "description": "",
+        "id": "navigateonchoonz;entering-data",
+        "after": [
+          {
+            "result": {
+              "duration": 674993200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Navigation.cleanUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 504565900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "DataHandling.cleanUp()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 88800,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "user goes to artists page",
+            "match": {
+              "location": "DataHandling.user_goes_to_artists_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 55000,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "user clicks on create Artist",
+            "match": {
+              "location": "DataHandling.user_clicks_on_create_Artists()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 58900,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "user clicks read artists",
+            "match": {
+              "location": "DataHandling.user_clicks_read_artists()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 69800,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "user updates artist",
+            "match": {
+              "location": "DataHandling.user_updates_artist()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 50400,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "user clicks read artists again",
+            "match": {
+              "location": "DataHandling.user_clicks_read_artists_again()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 30500,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "user deletes artist",
+            "match": {
+              "location": "DataHandling.user_deletes_artist()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 65500,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "user clicks read artist for the last time",
+            "match": {
+              "location": "DataHandling.user_clicks_read_artist_for_the_last_time()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "NavigateOnChoonz",
+    "description": "",
+    "id": "navigateonchoonz",
+    "keyword": "Feature",
+    "uri": "src/test/resources/cuke/nav.feature"
+  }
+]

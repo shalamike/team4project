@@ -1,0 +1,108 @@
+body{
+    background-color: #262729;
+}
+
+.d-block{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60vw !important;
+    height: 40vh !important;
+}
+
+
+
+/* navbar */
+.collapse{
+  height: 7vh;
+  margin-right:10%;
+  margin-left:5%;
+  text-align: center;
+}
+.nav-item{
+  padding: 0 1.5vw;
+}
+.nav-link{
+    font-size:x-large;
+}
+.image{
+  padding: 0 !important;
+  margin-left: 10%;
+  min-height: 7vh;
+  min-width: 14vw;
+  max-height: 18%;
+  max-width: 30%;
+}
+.form-inline{
+display:inline-flex;
+
+}
+.form-control{
+margin-right: 1vw;
+}
+
+/* text */
+.homeText{
+  margin: 1vw 3vh;
+    color: white;
+    font-size: large;
+    text-align: center;
+}
+
+
+/* image carousel */
+* {box-sizing:border-box}
+
+.carouselImg{
+  width: 350px;
+  height: 350px;
+}
+
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  text-align: center;
+}
+
+
+/* Caption text */
+ .text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  /* position: absolute; */
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+} 
+
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+ .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration:5s ;
+  animation-name: fade;
+  animation-duration: 5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}

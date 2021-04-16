@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="11.293419">
+    <testcase classname="NavigateOnChoonz" name="Navigating using the header" time="5.886817">
+        <system-out><![CDATA[Given I can access Choonz...................................................passed
+When user clicks on the artists tab.........................................passed
+Then user accecesses artists................................................passed
+When user clicks on albums tab..............................................passed
+Then user accecesses albums.................................................passed
+When User clicks on playlists page..........................................passed
+Then user accesses playlists................................................passed
+When user clicsk on tracks page.............................................passed
+Then user accesses tracks...................................................passed
+When user clicks on genres page.............................................passed
+Then user accesses genres page..............................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="NavigateOnChoonz" name="entering data" time="5.406602">
+        <system-out><![CDATA[Given I can access Choonz...................................................passed
+Given user goes to artists page.............................................passed
+When user clicks on create Artist...........................................passed
+Then user clicks read artists...............................................passed
+When user updates artist....................................................passed
+Then user clicks read artists again.........................................passed
+When user deletes artist....................................................passed
+Then user clicks read artist for the last time..............................passed
+]]></system-out>
+    </testcase>
+</testsuite>

@@ -3,21 +3,25 @@ package com.qa.choonz.rest.dto;
 import java.util.List;
 import java.util.Objects;
 
-import com.qa.choonz.persistence.domain.Album;
-
 public class GenreDTO {
 
     private long id;
     private String name;
     private String description;
-    private List<Album> albums;
+    private List<AlbumDTO> albums;
 
     public GenreDTO() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-    public GenreDTO(long id, String name, String description, List<Album> albums) {
+    public GenreDTO(long id, String name, String description) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
+    public GenreDTO(long id, String name, String description, List<AlbumDTO> albums) {
         super();
         this.id = id;
         this.name = name;
@@ -49,11 +53,11 @@ public class GenreDTO {
         this.description = description;
     }
 
-    public List<Album> getAlbums() {
+    public List<AlbumDTO> getAlbums() {
         return albums;
     }
 
-    public void setAlbums(List<Album> albums) {
+    public void setAlbums(List<AlbumDTO> albums) {
         this.albums = albums;
     }
 
